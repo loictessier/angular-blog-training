@@ -1,5 +1,11 @@
-<li [ngClass]="{ 'list-group-item': true, 'list-group-item-success': isLoved(), 'list-group-item-danger': isNotLoved() }">
-    <p>{{ post.created_at | date: 'dd/MM/yyyy, hh:mm aaa' }}</p>
+<li
+    [ngClass]="{ 'list-group-item': true, 'list-group-item-success': isLoved(), 'list-group-item-danger': isNotLoved() }">
+    <p>
+        {{ post.created_at | date: 'dd/MM/yyyy, hh:mm aaa' }}
+        <button class="btn btn-default pull-right" (click)="onDeletePost(post)">
+            <span class="fa fa-trash"></span>
+        </button>
+    </p>
     <h4 [ngStyle]="{ color: getColor() }">{{ post.title }}</h4>
     <p [ngStyle]="{ color: getColor() }">{{ post.content }}</p>
     <button class="btn btn-success" (click)="onAddLove()">Love it!</button>
